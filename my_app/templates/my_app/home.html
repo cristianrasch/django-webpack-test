@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
+{% load static %}
 
 {% block content %}
 {{ greeting }}
 
 <div id="app"></div>
 {% endblock content %}
+
+
+{% block js %}
+<script src="{% static 'dist/home.js' %}"></script>
+{% endblock js %}
