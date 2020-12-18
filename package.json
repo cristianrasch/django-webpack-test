@@ -1,9 +1,8 @@
 {
   "name": "django_webpack_test",
   "version": "0.1.0",
-  "main": "js/index.js",
   "author": "Cristian Rasch",
-  "license": "MIT",
+  "license": "proprietary",
   "private": true,
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.4",
@@ -13,8 +12,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "build": "webpack",
-    "serve": "webpack serve"
+    "build": "webpack --env NODE_ENV=production",
+    "serve": "webpack --env NODE_ENV=production serve"
   },
   "dependencies": {
     "vue": "^3.0.4"

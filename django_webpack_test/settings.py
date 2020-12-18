@@ -131,3 +131,4 @@ STATICFILES_DIRS = [
 
 if not DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+    STATIC_ROOT = BASE_DIR / 'public'
