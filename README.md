@@ -11,5 +11,5 @@
 2. cp .env.example .env
 3. poetry run python manage.py migrate
 4. yarn --cwd static install
-5. poetry run python honcho start
+5. poetry run honcho start
 6. Visit http://localhost:8000/home/
