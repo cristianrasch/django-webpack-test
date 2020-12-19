@@ -1,7 +1,8 @@
 ## Dependencies
 
-* Python 3.9
-* Yarn
+* [Python 3.9](https://www.python.org/downloads/)
+* [Poetry](https://python-poetry.org/docs/#installation)
+* [Yarn Classic](https://classic.yarnpkg.com/en/docs/install/)
 
 
 ## Setup instructions
