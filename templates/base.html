@@ -8,6 +8,7 @@
 
   <title>{% block title %}Django Webpack Test{% endblock %}</title>
 
+  {% block css %}{% endblock %}
   <link rel="icon" type="image/png" href="{% static 'img/favicon-16x16.png' %}">
 
   <script src="{% static 'app.js' %}"></script>
@@ -32,7 +33,6 @@
     {% block content %}{% endblock %}
   </main>
 
-  {% block css %}{% endblock %}
   {% block js %}{% endblock %}
 </body>
 </html>
