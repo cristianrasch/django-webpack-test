@@ -127,8 +127,9 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
+    BASE_DIR / 'dist',
 ]
 
 if not DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-    STATIC_ROOT = BASE_DIR / 'public'
+    STATIC_ROOT = BASE_DIR / os.getenv('STATIC_ROOT', 'public')

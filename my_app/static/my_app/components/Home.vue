@@ -1,5 +1,5 @@
 <template>
-  <p>{{ msg }}</p>
+  <p class="notice">{{ msg }}</p>
 </template>
 
 <script>
@@ -11,3 +11,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+p.notice {
+  color: green;
+}
+</style>

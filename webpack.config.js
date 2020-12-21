@@ -1,8 +1,10 @@
 const path = require('path');
-const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = (env) => {
-  const IS_PROD_MODE = env.NODE_ENV === "development";
+  const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+  const { VueLoaderPlugin } = require('vue-loader');
+
+  const IS_PROD_MODE = env.NODE_ENV === 'production';
 
   return {
     mode: IS_PROD_MODE ? 'production' : 'development',
@@ -14,10 +16,11 @@ module.exports = (env) => {
       }
     },
     entry: {
+      app: path.resolve(__dirname, 'static/js/app'),
       my_app__home: path.resolve(__dirname, 'my_app/static/my_app/index'),
     },
     output: {
-      path: path.resolve(__dirname, 'static/dist'), // Should be in STATICFILES_DIRS
+      // path: path.resolve(__dirname, 'public'), // Should be in STATICFILES_DIRS
       publicPath: '/static/', // Should match Django STATIC_URL
       filename: '[name].js', // No filename hashing, Django takes care of this
       chunkFilename: '[id]-[chunkhash].js', // Do have Webpack hash chunk filename
@@ -28,13 +31,20 @@ module.exports = (env) => {
     module: {
       rules: [
         {
+          test: /\.css$/i,
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        },
+        {
           test: /\.vue$/,
           loader: 'vue-loader'
-        }
-      ]
+        },
+      ],
     },
     plugins: [
-      new VueLoaderPlugin()
-    ]
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+      }),
+      new VueLoaderPlugin(),
+    ],
   };
 }

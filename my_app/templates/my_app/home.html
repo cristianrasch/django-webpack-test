@@ -3,12 +3,15 @@
 {% load static %}
 
 {% block content %}
-{{ greeting }}
+Welcome to {{ location }}
 
 <div id="app"></div>
 {% endblock content %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'my_app__home.css' %}">
+{% endblock css %}
 
 {% block js %}
-<script src="{% static 'dist/my_app__home.js' %}"></script>
+<script src="{% static 'my_app__home.js' %}"></script>
 {% endblock js %}
