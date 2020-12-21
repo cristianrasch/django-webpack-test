@@ -36,7 +36,7 @@ ALLOWED_HOSTS = list(filter(None, os.getenv('ALLOWED_HOSTS', '').split(',')))
 # Application definition
 
 INSTALLED_APPS = [
-    'my_app',
+    'my_app.apps.AppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,3 +133,5 @@ STATICFILES_DIRS = [
 if not DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
     STATIC_ROOT = BASE_DIR / os.getenv('STATIC_ROOT', 'public')
+
+AUTH_USER_MODEL = 'my_app.User'
