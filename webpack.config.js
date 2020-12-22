@@ -1,13 +1,13 @@
 const path = require('path');
 
-module.exports = (env) => {
+module.exports = (env = {}) => {
   const MiniCssExtractPlugin = require('mini-css-extract-plugin');
   const { VueLoaderPlugin } = require('vue-loader');
 
-  const IS_PROD_MODE = env.NODE_ENV === 'production';
+  const IS_DEV_MODE = env.NODE_ENV === 'production' || process.env.WEBPACK_DEV_SERVER;
 
   return {
-    mode: IS_PROD_MODE ? 'production' : 'development',
+    mode: IS_DEV_MODE ? 'development' : 'production',
     resolve: {
       modules: [path.resolve(__dirname, 'node_modules')],
       extensions: ['.js', '.vue'],
