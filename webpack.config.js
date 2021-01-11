@@ -8,9 +8,10 @@ module.exports = (env = {}) => {
 
   return {
     mode: IS_DEV_MODE ? 'development' : 'production',
+    devtool: IS_DEV_MODE ? 'eval-cheap-module-source-map' : 'source-map',
     resolve: {
       modules: [path.resolve(__dirname, 'node_modules')],
-      extensions: ['.js', '.vue'],
+      extensions: ['.js', '.vue', '.json'],
       alias: {
         'vue': '@vue/runtime-dom'
       }
